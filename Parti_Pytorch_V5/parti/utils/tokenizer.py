@@ -150,15 +150,3 @@ class SimpleTokenizer:
             result[i, :len(tokens)] = torch.tensor(tokens)
 
         return result
-    
-if __name__=="__main__":
-    tokenizer=SimpleTokenizer()
-    text="sos" 
-    test=tokenizer.encode(text)
-    print(test)
-    decode_test=tokenizer.decode(test)
-    print(decode_test)
-                        
-    
-
-    

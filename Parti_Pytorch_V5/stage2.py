@@ -15,11 +15,6 @@ from parti.dataloader.textimage import TextImageTrain, TextImageValidation
 
 from parti.modules.stage2.partitransformer import PartiTransformer
 
-#add device
-#rename parameters: add type
-#check the correctness of the code: paper
-#modify optimizer
-
 class Stage2(nn.Module):
     def __init__(self,
                  text_vocab_size,

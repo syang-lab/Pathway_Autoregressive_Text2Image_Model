@@ -1,10 +1,10 @@
 ## Pathway Autoregressive Text to Image Model (Parti)
-unofficial pytorch implementation of google's paper: scaling autoregressive models for content-rich text-to-image generation
+Unofficial pytorch implementation of Google's paper: scaling autoregressive models for content-rich text-to-image generation. 
 
 ## Simplified Two Stage Model Explaination 
 Stage1: ViT-VQGAN
 
-intuative explainatin: learn a image codebook (index/token, vectors) through image encoding and decoding images into quantized conponents.
+intuitive explanation: learn an image codebook (index/token, vectors) through image encoding and decoding images into quantized components.
 
 ViT encoder: encode images into quantized embedding space
 
@@ -28,13 +28,11 @@ Loss function:
 * reconstruction loss
 * discriminator loss
 * preceptual loss
-* codebook loss: gradient flow directly from decoder to encoder, because quantization step is not differenciable
+* codebook loss: gradient flow directly from decoder to encoder, because the quantization step is not differentiable.
 
 Stage2: Transformer (encoder and decoder)
 
-intuative explainatin: tokenized text, meanwhile tokenized images according to VQGAN code book. 
-text tokens pass through the transformer encoder and image tokens pass through the transformer decoder and output the predicted tokens.
-the predicted tokens. The tokens obtain vectors according to the the codebook, and eventually decoded into images using Vit decoder. 
+intuitive explanation: tokenized text, while tokenized images according to the VQGAN codebook. Then, text tokens pass through the transformer encoder, and image tokens pass through the transformer decoder and output the predicted image tokens. The predicted image tokens are converted to vectors according to the codebook, which are eventually decoded into images via the Vit decoder.
 
 * encode and tokenized images: Vit encoder+codebook
 
@@ -49,10 +47,10 @@ Loss function:
 
 
 ## Todo 
-- [ ] implement pytorch-light to simplify training and validation
-- [ ] setup config files
+- [ ] implement pytorch-light to simplify training and validation.
+- [ ] setup config files.
 - [ ] track experiments with w&b
-- [ ] train transformer with existing VQGAN pre-trained model
+- [ ] train transformer with existing VQGAN pre-trained models.
 - [ ] implement model or data parallel
 
 

@@ -24,7 +24,7 @@ Codebook: embedding space lookup table
   
 * output: image tokens [batch_size, grid_h*grid_w]
 
-loss function: 
+Loss function: 
 * reconstruction loss
 * discriminator loss
 * preceptual loss
@@ -44,6 +44,8 @@ the predicted tokens. The tokens obtain vectors according to the the codebook, a
   
 * decode tokens and generate images: Vit decoder+codebook 
 
+Loss function: 
+* cross entropy 
 
 
 ## Todo 

@@ -45,10 +45,12 @@ intuitive explanation: tokenized text, while tokenized images according to the V
 Loss function: 
 * cross entropy 
 
+## Versions
+
 
 ## Todo 
-- [ ] implement pytorch-light to simplify training and validation.
-- [ ] setup config files.
+- [x] implement pytorch-light to simplify training and validation.
+- [x] setup config files.
 - [ ] track experiments with w&b
 - [ ] train transformer with existing VQGAN pre-trained models.
 - [ ] implement model or data parallel

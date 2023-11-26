@@ -1,0 +1,69 @@
+model:
+    target: enhancing.modules.stage2.partitransformer.PartiTransformer
+    params:
+        text_key: token_text
+        sos_token: 0
+        image_seq_len: 1024
+        stage1:
+            target: enhancing.modules.stage1.vitvqgan.ViTVQ
+            params:
+                image_key: image
+                path: assets/checkpoints/imagenet_vitvq_base.ckpt
+                image_size: 256
+                patch_size: 8
+                encoder:
+                    dim: 768
+                    depth: 12
+                    heads: 12
+                    mlp_dim: 3072
+                decoder:
+                    dim: 768
+                    depth: 12
+                    heads: 12
+                    mlp_dim: 3072
+                quantizer:
+                    embed_dim: 32
+                    n_embed: 8192
+                loss:
+                    target: enhancing.losses.vqperceptual.DummyLoss
+
+        transformer:
+            target: enhancing.modules.stage2.transformer.Transformer
+            params:
+                text_vocab_size: 49408 
+                image_vocab_size: 8192
+                dim_model: 768
+                nhead: 12
+                num_encoder_layers: 12
+                num_decoder_layers: 12
+                dim_feedforward: 3072
+                dropout: 0.1
+
+     
+dataset:
+    target: enhancing.dataloader.DataModuleFromConfig
+    params:
+        batch_size: 4
+        num_workers: 1
+        train:
+            target: enhancing.dataloader.textimage.TextImageTrain
+            params:
+                root: assets/flowers
+                resolution: 256
+                tokenizer: 
+                    target: enhancing.utils.tokenizer.SimpleTokenizer
+                        params:
+                            text_length: 256 
+                            truncate_captions: True
+
+                
+        validation:
+            target: enhancing.dataloader.textimage.TextImageValidation
+            params:
+                root: assets/flowers
+                resolution: 256
+                tokenizer: 
+                    target: enhancing.utils.tokenizer.SimpleTokenizer
+                        params:
+                            text_length: 256 
+                            truncate_captions: True

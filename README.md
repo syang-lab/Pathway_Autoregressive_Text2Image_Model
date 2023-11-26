@@ -46,7 +46,8 @@ Loss function:
 * cross entropy 
 
 ## Versions
-
+Parti_pytorch_V5: Create the model in a way that is clear and easy to understand, facilitating user comprehension and execution.
+Parti_pytorch_V6: Establish compatibility with the pre-trained VQGAN model accessible on GitHub: https://github.com/thuanz123/enhancing-transformers, enabling seamless reuse of the retained VQGAN model for the parti mode.
 
 ## Todo 
 - [x] implement pytorch-light to simplify training and validation.

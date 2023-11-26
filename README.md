@@ -54,7 +54,6 @@ Parti_pytorch_V6: Establish compatibility with the pre-trained VQGAN model acces
 - [x] setup config files.
 - [ ] track experiments with w&b
 - [ ] train transformer with existing VQGAN pre-trained models.
-- [ ] implement model or data parallel
 
 
 ## Citations
